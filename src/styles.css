@@ -1,0 +1,175 @@
+:root {
+	
+	--font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	--font-size: 18px;
+	--line-height: 1.5em;
+	--font-code: "JetBrains Mono", monospace;
+	--font-code-size: 15px;
+	
+	--color-foreground: #282c33;
+	--color-background: #FCFCFC;
+
+	--color-foreground2: #777;
+	--color-background2: #ECECED;
+	
+	--space-sm: 10px;
+	--space: 20px;
+	--space-lg: 40px;
+	--space-xl: 80px;
+	
+	--radius-sm: 5px;
+	--radius: 10px;
+	--radius-lg: 20px;
+	
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-foreground: #ccc;
+		--color-foreground2: #bbb;
+		--color-background: #282c33;
+		--color-background2: #20242a;
+	}
+}
+
+
+/* Layout
+----------------------------------------------------------------------------- */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	padding: var(--space-lg);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space);
+}
+
+
+/* Text
+----------------------------------------------------------------------------- */
+
+body {
+	font-family: var(--font);
+	font-size: var(--font-size);
+	line-height: var(--line-height);
+	color: var(--color-foreground);
+	background: var(--color-background);
+}
+
+a {
+	color: inherit;
+}
+
+h1, h2, h3, h4 {
+	margin-top: var(--space);
+}
+
+h1 + h2,
+h2 + h3,
+h3 + h4 {
+	margin-top: 0;
+}
+
+h1 {
+	font-size: 36px;
+}
+
+h2 {
+	font-size: 26px;
+}
+
+h3, h4, h5, h6 {
+	font-size: 22px;
+}
+
+
+/* Elements
+----------------------------------------------------------------------------- */
+
+pre {
+	background-color: var(--color-background2);
+	overflow: auto;
+	padding: var(--space);
+	border-radius: var(--radius);
+	font-size: var(--font-code-size);
+}
+
+code {
+	white-space: pre;
+	font-family: var(--font-code);
+	font-size: var(--font-code-size);
+	display: inline-block;
+	padding: 0 7px;
+	color: var(--color-foreground2);
+	background-color: var(--color-background2);
+	border-radius: var(--radius-sm);
+}
+
+pre code {
+	padding: 0;
+	/* color: inherit; */
+	background: transparent;
+}
+
+
+/* Lists
+----------------------------------------------------------------------------- */
+
+ul, ol {
+	--indent: var(--space);
+	padding-left: var(--indent);
+	margin-left: var(--space);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+}
+
+ol {
+	--indent: var(--space-lg);
+	counter-reset: custom-counter;
+}
+
+li {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+}
+
+ul li::before {
+	content: "";
+	background: var(--color-foreground);
+	width: 7px;
+	aspect-ratio: 1;
+	border-radius: 1000px;
+	position: absolute;
+	top: .5em;
+	left: calc(var(--indent) * -1);
+	font-weight: bold;
+}
+
+ol li {
+	counter-increment: custom-counter;
+}
+
+ol li::before {
+	content: counter(custom-counter);
+	position: absolute;
+	top: 0;
+	left: calc(var(--indent) * -1);
+	display: flex;
+	aspect-ratio: 1;
+	height: 2em;
+	border-radius: 1000px;
+	justify-content: center;
+	align-items: center;
+	background: var(--color-foreground);
+	color: var(--color-background);
+	font-size: .75em;
+	font-weight: bold;
+}
