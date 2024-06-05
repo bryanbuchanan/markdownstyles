@@ -7,9 +7,9 @@
 	--font-code-size: 15px;
 	
 	--color-foreground: #282c33;
-	--color-background: #FCFCFC;
-
 	--color-foreground2: #777;
+
+	--color-background: #FCFCFC;
 	--color-background2: #ECECED;
 	
 	--space-sm: 10px;
@@ -105,6 +105,12 @@ pre {
 	padding: var(--space);
 	border-radius: var(--radius);
 	font-size: var(--font-code-size);
+	
+	code {
+		padding: 0;
+		background: transparent;
+	}
+	
 }
 
 code {
@@ -118,10 +124,10 @@ code {
 	border-radius: var(--radius-sm);
 }
 
-pre code {
-	padding: 0;
-	/* color: inherit; */
-	background: transparent;
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: var(--radius);
 }
 
 
@@ -144,12 +150,10 @@ ol {
 
 li {
 	position: relative;
-	display: flex;
-	flex-direction: column;
-	gap: var(--space-sm);
+	list-style-type: none;
 }
 
-ul li::before {
+ul > li::before {
 	content: "";
 	background: var(--color-foreground);
 	width: 7px;
@@ -165,7 +169,7 @@ ol li {
 	counter-increment: custom-counter;
 }
 
-ol li::before {
+ol > li::before {
 	content: counter(custom-counter);
 	position: absolute;
 	top: 0;
@@ -180,4 +184,23 @@ ol li::before {
 	color: var(--color-background);
 	font-size: .75em;
 	font-weight: bold;
+}
+
+
+/* Tables
+----------------------------------------------------------------------------- */
+
+table {
+	border-collapse: collapse;
+	font-size: 1em;
+}
+
+th, td {
+	padding: var(--space-sm);
+	text-align: left;
+}
+
+td {
+	/* border-top: 1px solid rgba(var(--color-foreground), 0.5); */
+	border-top: 1px solid var(--color-foreground);
 }
