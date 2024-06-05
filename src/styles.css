@@ -105,12 +105,6 @@ pre {
 	padding: var(--space);
 	border-radius: var(--radius);
 	font-size: var(--font-code-size);
-	
-	code {
-		padding: 0;
-		background: transparent;
-	}
-	
 }
 
 code {
@@ -124,12 +118,25 @@ code {
 	border-radius: var(--radius-sm);
 }
 
+pre code {
+	padding: 0;
+	background: transparent;
+}
+
 img {
 	max-width: 100%;
 	height: auto;
 	border-radius: var(--radius);
 }
 
+blockquote {
+	display: flex;
+	flex-direction: column;
+	gap: inherit;
+	font-style: italic;
+	padding-left: var(--space-lg);
+	border-left: 5px solid;
+}
 
 /* Lists
 ----------------------------------------------------------------------------- */
