@@ -1,0 +1,49 @@
+<html>
+<head>
+	<link href="./src/styles.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			const markdown = document.body.textContent
+			console.log(markdown)
+			const md = markdownit()
+			const html = md.render(markdown)
+			document.body.innerHTML = html
+		})
+	</script>
+</head>
+<body>
+
+# Markdown Document
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales [turpis non urna finibus](//google.com), a efficitur sapien sagittis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+```js
+document.addEventListener("DOMContentLoaded", () => {
+	const md = markdownit()
+	const html = md.render(document.body.textContent)
+	document.body.innerHTML = html
+})
+```
+
+- **Fusce iaculis quam at nulla faucibus**, a tempus lacus ultricies.
+- Sed interdum, purus et varius sollicitudin, *metus ipsum* egestas lacus, id convallis neque `libero nec risus`.
+- Nullam accumsan, nisi vel `volutpat gravida`, tortor felis interdum est, ac tincidunt odio ipsum et est.
+
+## Fusce iaculis quam at nulla
+
+1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+1. Quisque sodales turpis non urna finibus, a Pellentesque.
+1. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+| Netus | Tristique |
+| - | - |
+| Pellentesque | Consectetur adipiscing elit |
+| Tortor felis | Purus et varius sollicitudin |
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales turpis non urna finibus, a efficitur sapien sagittis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+> Fusce iaculis quam at nulla faucibus, a tempus lacus ultricies. Sed interdum, purus et varius sollicitudin, metus ipsum egestas lacus, id convallis neque libero nec risus. Nullam accumsan, nisi vel volutpat gravida, tortor felis interdum est, ac tincidunt odio ipsum et est.
+
+</body>
+</html>
